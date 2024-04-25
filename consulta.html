@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Chamados</title>
+    <link rel="stylesheet" href="css/style_seg.css">
+</head>
+<body>
+    <h1>Gerenciamento de Chamados</h1>
+    <label for="filtro">Filtrar:</label>
+    <select id="filtro">
+        <option value="todos">Todos os Chamados</option>
+        <option value="naoFinalizados">Não Finalizados</option>
+    </select><br><br>
+
+    <h2>Chamados</h2>
+    <ul id="listaChamados">
+        <!-- Aqui serão inseridos os chamados dinamicamente -->
+    </ul>
+
+    <h2>Responder Chamado</h2>
+    <form id="respostaForm" action="https://parseapi.back4app.com/functions/enviarResposta" method="POST">
+        <label for="respostaTexto">Resposta:</label><br>
+        <textarea id="respostaTexto" name="resposta" rows="4" required></textarea><br>
+
+        <input type="submit" value="Enviar Resposta">
+    </form>
+
+    
+    <script src="https://www.parsecdn.com/js/parse-1.24.0.min.js"></script>
+    <script>
+        // Inicialize o Parse SDK com as credenciais do Back4App
+        Parse.initialize("yKh16UcnEVT9SlMwhfmBqFRgjC3c8XnO6WGlB9vy", "0C6NKY83vc6rN7qIyHQPSZ5jEoFvnLAiG2DIWzcT");
+        Parse.serverURL = "https://parseapi.back4app.com/";
+    </script>
+
+    <script src="script/gerenciamento.js"></script>
+</body>
+</html>
